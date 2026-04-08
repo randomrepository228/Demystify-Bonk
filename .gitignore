@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+_*
+.crossnote
+.node_modules
+.package-lock.json
+NetworkEngine.js
+demystify_packets.md
+packets.md
