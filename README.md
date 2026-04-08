@@ -1572,7 +1572,9 @@ Example: `42[53,{"newPass":"password here"}]`
 
 <a name="source-code-deobfuscation"></a>
 ## Source Code / Deobfuscation
-
+> [^WARNING]
+> THIS SECTION IS NOT ALLOWED CONTRIBUTIONS, WILL BE PURELY WRITTEN BY ME.
+> 
 <a name="common-data-schemes"></a>
 ## Common Data Schemes
 
