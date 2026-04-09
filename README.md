@@ -1161,8 +1161,13 @@ Example: `42[17]`
 ---
 
 <a name="emit-18-unknownpacket"></a>
-#### Emit 18 — UnknownPacket
-TODO
+#### Emit 18 — Timesync request
+
+Example: `4229[18,{"jsonrpc":"2.0","id":354,"method":"timesync"}]`
+
+| Key | Description |
+|-----|-------------|
+| `id` | Timesync request ID |
 
 ---
 
@@ -1771,9 +1776,10 @@ str += initialState.slice(101)
 <a name="timesync-response-data"></a>
 ### Timesync Response Data
 
-| Field | Type | Notes |
-| ----- | ---- | ----- |
-| TODO  | TODO | TODO  |
+| Field | Description |
+| ----- | ----- |
+| id | Timesync request ID |
+| result | Unix timestamp of the server time (in milliseconds) |
 
 <a name="admin-input-data"></a>
 ### Admin Input Data
