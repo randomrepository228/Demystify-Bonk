@@ -339,6 +339,7 @@ Received when a player is muted by the server.
 |---|-------------|
 | 1 | Muted player's slot ID |
 | 2 | Mute type/info |
+| 3 | Who was told about it. 1 - Everyone, 2 - Everyone except muted player
 
 ---
 
@@ -354,6 +355,7 @@ Received when a player is unmuted by the server.
 |---|-------------|
 | 1 | Unmuted player's slot ID |
 | 2 | Unmute type/info |
+| 3 | Who was told about it. 1 - Everyone, 2 - Everyone except muted player
 
 ---
 
@@ -1035,7 +1037,7 @@ Example: `42[7,{"teamLock":false}]`
 | Key | Description |
 |-----|-------------|
 | `muteID` | Target player's ID |
-| `muteType` | Type of mute |
+| `muteType` | Who to tell about it. 1 - Everyone, 2 - Everyone except the player, 3 - Nobody |
 | `action` | `"mute"` or `"unmute"` |
 
 ---
