@@ -86,7 +86,7 @@ A repository for various resources to understand the inner workings of [bonk.io]
     - [Emit 15 — UnknownPacket](#emit-15-unknownpacket) *line 1053*
     - [Emit 16 — Set Ready](#emit-16-set-ready) *line 1058*
     - [Emit 17 — All Ready Reset](#emit-17-all-ready-reset) *line 1068*
-    - [Emit 18 — UnknownPacket](#emit-18-unknownpacket) *line 1076*
+    - [Emit 18 — Timesync Request](#emit-18-timesync-request) *line 1076*
     - [Emit 19 — Map Reorder](#emit-19-map-reorder) *line 1081*
     - [Emit 20 — Send Mode](#emit-20-send-mode) *line 1090*
     - [Emit 21 — Send WL (Rounds)](#emit-21-send-wl-rounds) *line 1103*
@@ -161,12 +161,17 @@ In fact, much of this README was written with the help of AI. However, the resea
 <a name="network"></a>
 ## Network
 
-Bonk.io networking uses **Socket.IO** for client-server communication. Each game packet is a JSON array prefixed with `42`, where the first element is the Packet ID[^Packet-ID]:
+Bonk.io networking uses **Socket.IO** for client-server communication. Each game packet __except emit 18__ is a JSON array prefixed with `42`, where the first element is the Packet ID[^Packet-ID]:
 
 ```
 42[packetID[^Packet-ID], ...args]
 ```
+```
+42ackID[18,{...}]
+```
 
+> [!NOTE]
+> ackID is a number that increments each time the message containing it gets sent.
 > [!NOTE]
 > The same Packet ID[^Packet-ID] may serve different purposes depending on direction (incoming `socket.on()` vs outgoing `socket.emit()`).
 
@@ -1160,7 +1165,7 @@ Example: `42[17]`
 
 ---
 
-<a name="emit-18-unknownpacket"></a>
+<a name="emit-18-timesync-request"></a>
 #### Emit 18 — Timesync request
 
 Example: `4229[18,{"jsonrpc":"2.0","id":354,"method":"timesync"}]`
